@@ -1,11 +1,11 @@
 name: Schedsy Lead Ingestion (Texas)
 
 on:
-  workflow_dispatch: # Allows you to trigger this manually with one click
+  workflow_dispatch:
 
 jobs:
   scrape-and-sanitize:
-    runs-on: ubuntu-latest # This runner is physically located in a US Azure datacenter
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -22,7 +22,7 @@ jobs:
           pip install requests beautifulsoup4 pandas openpyxl
 
       - name: Execute Extraction Engine
-        run: python texas_hunter.py
+        run: python hunter.py
 
       - name: Upload Clean Leads Artifact
         uses: actions/upload-artifact@v4
